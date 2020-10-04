@@ -1,9 +1,4 @@
-import {
-  CREATE_EVENT,
-  DELETE_ALL_EVENTS,
-  ADD_OPERATION_LOG,
-  DELETE_ALL_OPERATION_LOGS,
-} from "../actions";
+import { CREATE_EVENT } from "../actions";
 
 import React, { useState, useContext } from "react";
 import { makeStyles } from "@material-ui/core/styles";
@@ -61,8 +56,6 @@ const Form = () => {
       <Button variant="contained" color="primary" onClick={addTodo}>
         追加
       </Button>
-
-      {state.todoEvent.map((todo, index) => console.log(todo))}
     </div>
   );
 };

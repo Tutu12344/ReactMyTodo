@@ -4,6 +4,7 @@ import Form from "./Form";
 import "../App.css";
 import AppContext from "../contexts/AppContext";
 import reducer from "../reducers";
+import TodoList from "./TodoList";
 
 function App() {
   const initialState = {
@@ -16,6 +17,7 @@ function App() {
       <div>
         <Navbar />
         <Form />
+        <TodoList />
       </div>
     </AppContext.Provider>
   );
