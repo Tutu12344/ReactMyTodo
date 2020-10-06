@@ -6,6 +6,11 @@ import {
 } from "../actions";
 import { db } from "../utils/firebase";
 const todoEvent = (state = [], action) => {
+  const getAllTodo = async () => {
+    const snapshot = await db.collection("todos").get();
+    return snapshot;
+  };
+
   switch (action.type) {
     case CREATE_EVENT:
       db.collection("todos")
@@ -33,13 +38,26 @@ const todoEvent = (state = [], action) => {
     case DELETE_ALL_EVENTS:
       return state;
     case GET_ALL_EVENTS:
-      db.collection("todos")
-        .get()
-        .then((querySnapshot) => {
-          querySnapshot.forEach((doc) => {
-            console.log(`${doc.id} => ${doc.data()}`);
-          });
-        });
+      // var todos = [];
+
+      // const searchTodos = async () => {
+      //   // Firestoreのコレクションを指定してデータ取得。今回は全量を検索
+      //   const snapshot = db.collection("todos").get();
+      //   const todos = snapshot.then((s) => {
+      //     s.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
+      //   });
+      //   console.log(todos);
+      // db.collection("todos")
+      //   .get()
+      //   .then((querySnapshot) => {
+      //     querySnapshot.forEach((doc) => {
+      //       d.push(doc.data());
+      //       console.log(doc.data());
+      //     });
+      //   });
+      // };
+      // searchTodos();
+      // console.log(todos);
       return state;
     default:
       return state;
